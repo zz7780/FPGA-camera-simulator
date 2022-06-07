@@ -1,0 +1,40 @@
+// test bench for HDMI
+
+module hdmi_tb;
+	
+	reg clk = 1'b0;
+	wire red_tb;
+	wire green_tb;
+	wire blue_tb;
+	wire hsync;
+	wire vsync;
+	
+	//always #20 clk = ~clk;
+	
+	// always #20 clk <= ~clk;
+		/*
+	HDMI_program #(.total_horizontal(),
+				   .horizontal(),
+				   .h_front_proch(),
+					.h_sync_width(),
+					.h_back_porch(),
+					.total_veritcal(),
+					.vertical(),
+					.v_front_proch(),
+					.v_sync_width(),
+					.v_back_porch())
+					
+					
+			 UTTT(.pixel_clk(clk),
+				  .h_sync(hsync),
+				  .v_sync(vsync));
+			
+	initial
+		begin
+			#5000;
+			$finish();
+		end
+*/
+
+
+endmodule
