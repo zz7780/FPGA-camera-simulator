@@ -16,8 +16,7 @@ For the programming part, our team decided to use color pattern simulate to inst
 
 
 ![image](https://github.com/zz7780/FPGA-camera-simulator/blob/main/Initial%20code/intial%20block%20diagram.png)
-
-
+![image](https://github.com/zz7780/FPGA-camera-simulator/blob/main/Initial%20code/last%20block%20diagram.png)
 
 
 
