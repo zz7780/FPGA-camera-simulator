@@ -15,7 +15,7 @@ While our team was unable to fully complete the initial two phases that we had s
 For the programming part, our team decided to use color pattern simulate to instead of PCB board test  
 
 
-![image]()
+![image](https://github.com/zz7780/FPGA-camera-simulator/blob/main/Initial%20code/intial%20block%20diagram.png)
 
 
 
