@@ -1,1 +1,36 @@
-
+License Server Setup
+To set up your license manager as a system service:
+1. Copy the license file (license.dat) to 
+<diamond_install_path>\license\license.dat.
+2. Double-click the <diamond_install_path>\ispfpga\bin\nt64\lmtools.exe
+file to open the LMTOOLS dialog box.
+3. Choose the Config Services tab in the LMTOOLS dialog box.
+Note
+The “\” followed by a carriage return indicates a line continuation.
+Note
+Windows 7 users may need to right click on LMTOOLS.exe and select Run as 
+Administrator.
+INSTALLING DIAMOND TOOLS : Setting Up a Floating License
+Lattice Diamond 3.12 Installation Notice for Windows 17
+4. Change Service Name to Lattice FLEXlm Service 1.
+5. Browse and set lmgrd.exe to <install_path>\ispfpga\bin\nt64\lmgrd.exe.
+6. Browse and set the license file to <install_path>\license\license.dat.
+7. Browse and set the debug log file to <install_path>\license\lattice.log.
+8. Click Save Service.
+9. Select the Start/Stop/Reread tab.
+10. Click Start Server.
+11. Select the Config Services tab.
+12. Select View Log to view the lattice.log file. Check to see if there are any 
+problems starting the license server. If there are no problems, close the 
+log file.
+13. Choose Start > All Programs > Lattice Semiconductor > Lattice 
+Diamond 3.12 to verify license checkout (this will be reflected in the 
+lattice.log file). Close Diamond.
+14. Choose the Start/Stop/Reread tab in the LMTOOLS dialog box.
+15. Select Stop Server.
+16. Select the Config Services tab. Select Use Services and Start Server at 
+Power-Up.
+17. Click Save Service, and then select File > Exit.
+18. Restart the Windows server system.
+19. Start Diamond again to verify that the license server is running as a 
+service.
