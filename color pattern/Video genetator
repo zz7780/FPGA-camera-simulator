@@ -1,1 +1,41 @@
 
+// HDMI signal
+// pixel clock has to be 148.5 MHz
+`timescale 1ns / 1ps
+module HDMI_program #(
+	parameter total_horizontal = 2200,
+	parameter horizontal = 1920,
+	parameter h_front_proch = 88,
+	parameter h_sync_width = 44,
+	parameter h_back_porch = 148,
+	parameter total_veritcal = 1125,
+	parameter vertical = 1080,
+	parameter v_front_proch = 4,
+	parameter v_sync_width = 5,
+	parameter v_back_porch = 36)
+(pixel_clk, in_hsync, in_vsync, out_hsync, out_vsync, h_sync, v_sync, horizontal_count, vertical_count, red_color, blue_color, green_color);
+
+input pixel_clk;
+input in_hsync;
+input in_vsync;
+output reg h_sync;
+output reg v_sync;
+output reg red_color;
+output reg blue_color;
+output reg green_color;
+output reg out_hsync;
+output reg out_vsync;
+output reg [9:0]  horizontal_count = 0;
+output reg [9:0]  vertical_count = 0;
+
+ 
+
+// syncing
+always @(posedge pixel_clk) 
+	begin 					
+		vertical_count <= (vertical_count == total_veritcal - v_sync_width) ? 1'b0 : vertical_count + 1;
+		h_sync = horizontal_count > horizontal - h_front_proch - h_back_porch  ? 1'b0 : 1'b1; // active as long as it's less than 1920
+		if(vertical_count == total_veritcal - v_sync_width) 
+			horizontal_count <= (horizontal_count == total_horizontal - h_sync_width) ? 1'b0 : horizontal_count + 1;
+		v_sync = vertical_count > vertical - v_front_proch - v_back_porch ? 1'b0 : 1'b1; // active as long as it's less than 1080
+	end
